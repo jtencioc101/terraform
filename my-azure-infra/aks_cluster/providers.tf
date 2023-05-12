@@ -12,7 +12,7 @@ terraform {
   cloud {
     organization = "jct-terratest"
     workspaces {
-      name = "learning"
+      name = "my-azure-infra"
     }
   }
 }
