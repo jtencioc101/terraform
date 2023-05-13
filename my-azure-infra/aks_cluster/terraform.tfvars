@@ -27,4 +27,10 @@ user_node_count      = 1
 user_os_disk_type    = "Ephemeral"
 user_node_auto_scale = true
 user_node_min_count  = 1
-user_node_max_count  = 3 
+user_node_max_count  = 3
+
+# Network variables
+vnet_name        = "aks_vnet"
+address_space    = ["10.0.0.0/8"]
+subnet_name      = "aks_default_subnet"
+address_prefixes = ["10.240.0.0/16"]
