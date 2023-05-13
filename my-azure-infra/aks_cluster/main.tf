@@ -6,13 +6,13 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_virtual_network" "aks-vnet" {
   name                = var.vnet_name
   address_space       = var.address_space
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = var.node_resource_group
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
 }
 
 resource "azurerm_subnet" "aks-default-subnet" {
   name                 = var.subnet_name
-  resource_group_name  = var.node_resource_group
+  resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.aks-vnet.name
   address_prefixes     = var.address_prefixes
 }
@@ -186,3 +186,17 @@ resource "azurerm_linux_virtual_machine" "jumpbox" {
 
 
 #todo --- add block to peer the Jumpbox VNET to the AKS VNET
+
+resource "azurerm_virtual_network_peering" "jumpbox-to-aks" {
+  name                      = var.peering1_name
+  resource_group_name       = var.jumpbox_resource_group
+  virtual_network_name      = azurerm_virtual_network.jumpbox.name
+  remote_virtual_network_id = azurerm_virtual_network.aks-vnet.id
+}
+
+resource "azurerm_virtual_network_peering" "aks-to-jumpbox" {
+  name                      = var.peering2_name
+  resource_group_name       = azurerm_resource_group.rg.name
+  virtual_network_name      = azurerm_virtual_network.aks-vnet.name
+  remote_virtual_network_id = azurerm_virtual_network.jumpbox.id
+}
