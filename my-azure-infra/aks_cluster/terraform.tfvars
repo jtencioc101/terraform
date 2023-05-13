@@ -80,5 +80,9 @@ admin_username          = "k8sadmin"
 disable_password_auth   = true
 public_key              = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCu+1OsM7kZJjQY3e8z9A2yRKDkUzXGXVeMnRn5fNqUD3U9Q23z4lvtDQptmGtQl2RnAi9r6KfELN6hhwyst+jzz2mMG4vBNlEnDfXvPqRLo5s2Gfe6dt0aos6nwWTQ/RwTr4vQUmfErpPSQZWiJm2aBuZxB4e+1be4GDBaFxVZLdiFNUU+buY4D/AIfm2Z4SrclQkTJbG9GhsnU/zA1o1958Rx/6i+1kVFxgQIpODNJr2WHLi3axo2Q4ds/9wISfyi+m+TB/i487PcBARgeA/0CvUJ0IjFMNIC0DOaclrj+beOdgT2mftY/tGXdySmXTYjQeFo06HZXoitB88yItzHbUA9jhDNAf9DFmynJJaQbrAUtUBRhJcz59kLg4A2JirG2YFqMnZyIFNAmT2up3pobTUxEwHOoAR9ts+TxF8q+y9dLg4DP98WrC/ExhGLwht2Bhu/7sHcgjSyZddzHZWkQGx/fBuxGUuOlrNPy4tXfoXyG7aD0qKs7bHikJpuvOU= jtencio@Julios-MacBook-Pro.local"
 
+# Network peering variables
+peering1_name = "jumpbox_to_aks"
+peering2_name = "aks_to_jumpbox"
+
 
 
