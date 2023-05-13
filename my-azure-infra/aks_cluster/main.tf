@@ -2,7 +2,20 @@ resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
   location = var.location
 }
-#todo --- add block to create the AKS VNET and subnet
+
+resource "azurerm_virtual_network" "aks-vnet" {
+  name                = var.vnet_name
+  address_space       = var.address_space
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+}
+
+resource "azurerm_subnet" "aks-default-subnet" {
+  name                 = var.subnet_name
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.aks-vnet.name
+  address_prefixes     = var.address_prefixes
+}
 
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.cluster_name
@@ -12,6 +25,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   dns_prefix          = var.cluster_name
   node_resource_group = var.node_resource_group
 
+
   default_node_pool {
     name                = var.system_node_name
     node_count          = var.system_node_count
@@ -19,6 +33,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
     type                = var.system_node_type
     enable_auto_scaling = var.enable_auto_scaling
     tags                = var.tags
+    vnet_subnet_id      = azurerm_subnet.aks-default-subnet.id
   }
   identity {
     type = var.identity_type
@@ -42,6 +57,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "user" {
   min_count             = var.user_node_min_count
   max_count             = var.user_node_max_count
   tags                  = var.tags
+  vnet_subnet_id        = azurerm_subnet.aks-default-subnet.id
 }
 
 #todo --- add block to create Jumpbox VMs
