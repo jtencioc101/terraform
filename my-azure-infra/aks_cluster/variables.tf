@@ -297,8 +297,3 @@ variable "public_key" {
   type        = string
   description = "Public key path"
 }
-
-variable "private_key" {
-  type        = string
-  description = "Private key path"
-}
