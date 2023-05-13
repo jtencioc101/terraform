@@ -102,3 +102,23 @@ variable "user_node_max_count" {
   type        = number
   description = "Maximum number of the user node pool"
 }
+
+variable "vnet_name" {
+  type        = string
+  description = "Name of the VNET"
+}
+
+variable "address_space" {
+  type        = list(string)
+  description = "Address space of the VNET"
+}
+
+variable "subnet_name" {
+  type        = string
+  description = "Name of the subnet"
+}
+
+variable "address_prefixes" {
+  type        = list(string)
+  description = "Address prefixes of the subnet"
+}
