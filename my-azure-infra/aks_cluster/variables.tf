@@ -297,3 +297,13 @@ variable "public_key" {
   type        = string
   description = "Public key path"
 }
+
+variable "peering1_name" {
+  type        = string
+  description = "Name of the peering 1"
+}
+
+variable "peering2_name" {
+  type        = string
+  description = "Name of the peering 2"
+}
