@@ -1,3 +1,4 @@
+# Create a virtual network and subnet for AKS cluster
 resource "azurerm_virtual_network" "aks-vnet" {
   name                = var.vnet_name
   address_space       = var.address_space

@@ -1,3 +1,4 @@
+# Create a virtual network and subnet for Jumpbox
 resource "azurerm_virtual_network" "jumpbox" {
   name                = var.jumpbox_vnet_name
   address_space       = var.jumpbox_address_space

@@ -1,3 +1,4 @@
+# Create AKS node pool for user workloads
 resource "azurerm_kubernetes_cluster_node_pool" "user" {
   name                  = var.user_node_name
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
