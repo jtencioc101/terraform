@@ -43,7 +43,7 @@ resource "azurerm_linux_virtual_machine" "jumpbox" {
 
   admin_ssh_key {
     username   = var.admin_username
-    public_key = var.public_key
+    public_key = file("~/.ssh/id_rsa.pub")
 
   }
 
