@@ -293,11 +293,6 @@ variable "disable_password_auth" {
   description = "Disable password authentication"
 }
 
-variable "public_key" {
-  type        = string
-  description = "Public key path"
-}
-
 variable "peering1_name" {
   type        = string
   description = "Name of the peering 1"
