@@ -3,6 +3,7 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
 }
 
+# Create AKS cluster components
 resource "azurerm_virtual_network" "aks-vnet" {
   name                = var.vnet_name
   address_space       = var.address_space
@@ -60,7 +61,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "user" {
   vnet_subnet_id        = azurerm_subnet.aks-default-subnet.id
 }
 
-#todo --- add block to create Jumpbox VM
+# Create Jumpbox components
 resource "azurerm_resource_group" "jumpbox-rg" {
   name     = var.jumpbox_resource_group
   location = var.jumpbox_location
@@ -185,7 +186,7 @@ resource "azurerm_linux_virtual_machine" "jumpbox" {
 }
 
 
-#todo --- add block to peer the Jumpbox VNET to the AKS VNET
+# Create peering between AKS and Jumpbox VNets
 
 resource "azurerm_virtual_network_peering" "jumpbox-to-aks" {
   name                      = var.peering1_name
