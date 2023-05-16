@@ -1,0 +1,9 @@
+- hosts: all
+  vars:
+    simple_file: ~/simple-file.txt
+  tags:
+    - tag1
+  tasks:
+    - ansible.builtin.file:
+        path: "{{ simple_file }}"
+        state: touch
