@@ -47,3 +47,7 @@ tags = {
   owner       = "Julio"
   project     = "Compute Resources"
 }
+
+# Ansible variables
+ansible_pk     = "~/.ssh/id_rsa"
+ansible_python = "/usr/bin/python3"
