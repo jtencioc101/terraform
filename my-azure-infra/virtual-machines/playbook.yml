@@ -1,15 +1,24 @@
---- 
-- name: set up webserver
+---
+- name: Install Nginx on Webservers
   hosts: webservers
-  tasks: 
-    - name: ensure nginx is at the latest version
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
       become: true
+
+    - name: Install Nginx
       apt:
         name: nginx
-        state: latest
-    - name: start nginx
+        state: present
       become: true
-      service: 
+
+    - name: Start Nginx service
+      service:
         name: nginx
         state: started
-        enabled: yes  # if you want to also enable nginx
+        enabled: yes
+      become: true
+
