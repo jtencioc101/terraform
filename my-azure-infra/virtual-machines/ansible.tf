@@ -4,7 +4,6 @@ resource "ansible_host" "nginx-vm" {
   groups     = ["webservers"]
 }
 resource "ansible_playbook" "playbook" {
-  depends_on = [ansible_host.nginx-vm]
   playbook   = "playbook.yml"
   name       = azurerm_linux_virtual_machine.linux-vm.public_ip_address
   replayable = true
