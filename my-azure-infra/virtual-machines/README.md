@@ -1,0 +1,1 @@
+### Creates a Linux Virtual Machine and installs Nginx using Ansible provider for Terraform
