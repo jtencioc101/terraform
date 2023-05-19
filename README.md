@@ -1,1 +1,1 @@
-### Basic Terraform scripts to pracetice for the Terraform Associate exam and overall IaC practice
+### Basic Terraform scripts for the Terraform Associate exam and overall IaC labs
