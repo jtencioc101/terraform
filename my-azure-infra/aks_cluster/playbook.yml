@@ -4,16 +4,20 @@
   become: true
 
   tasks:
-    - name: Install Azure CLI on Jumpbox
-      apt:
-        name: azure-cli
-        state: present
+    - name: Get AZ CLI Install Script
       become: true
+      ansible.builtin.command: wget https://aka.ms/InstallAzureCLIDeb 
+    
+    - name: Add executable permissions to AZ CLI Install Script
+      become: true
+      ansible.builtin.command: chmod +x InstallAzureCLIDeb
 
-    - name: Install AZ AKS CLI
-      pip:
-        name: azure-cli-aks
-        state: present
+    - name: Install AZ CLI
       become: true
+      ansible.builtin.command: ./InstallAzureCLIDeb
+      
+    - name: Install AZ AKS CLI
+      become: true
+      ansible.builtin.command: az aks install-cli
 
       
