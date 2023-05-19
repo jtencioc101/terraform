@@ -10,6 +10,6 @@
 
 ### Limitations
 - The Private DNS Zone is not created nor tracked by Terraform as it is created by default with the Private AKS cluster, to be able to resolve the Cluster API FQDN a subnet link is needed at the Private DNS Zone.<br/>
-   [Subnet Link](https://learn.microsoft.com/en-us/azure/dnsprivate-dns-getstarted-portal#link-the-virtual-network)
+   [Subnet Link](https://learn.microsoft.com/en-us/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
    
 ![Basic topology](assets/image.png)
