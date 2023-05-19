@@ -1,0 +1,19 @@
+---
+- name: Prepare AKS Jumpbox VM
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install Azure CLI on Jumpbox
+      apt:
+        name: azure-cli
+        state: present
+      become: true
+
+    - name: Install AZ AKS CLI
+      pip:
+        name: azure-cli-aks
+        state: present
+      become: true
+
+      
