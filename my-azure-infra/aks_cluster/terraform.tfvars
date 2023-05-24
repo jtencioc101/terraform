@@ -58,7 +58,7 @@ nsg_rule_access                     = "Allow"
 nsg_rule_protocol                   = "*"
 nsg_rule_source_port_range          = "*"
 nsg_rule_destination_port_range     = "*"
-nsg_rule_source_address_prefix      = "186.15.107.177"
+nsg_rule_source_address_prefix      = "$PUBIP"
 nsg_rule_destination_address_prefix = "*"
 
 # Storage account variables
